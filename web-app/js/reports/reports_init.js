@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // load dashboard stuff here
-  
+
   // filters show/hide
   $('#js-filters-toggle').click(function(e) {
     e.preventDefault();
@@ -12,6 +12,8 @@ $(document).ready(function(){
     $('.filters-box').slideToggle();
   });
 
+
+  // show/hide dropdowns
   $('.v-tabs-fold-toggle').click(function(event) {
     var toggle = $(this);
     var li = toggle.parent().parent();
@@ -21,12 +23,25 @@ $(document).ready(function(){
     } else {
       li.children('.v-tabs-fold-container').children().show();
       li.addClass('selected');
-      li.find('div#comparison').hide();
-      li.find('div#geo_trend').hide();
-      li.find('div#info_facility').hide();
     }
     li.children('.v-tabs-fold-container').toggle(500);
   });
+
+
+  $('.v-tabs-fold-toggle-level-two').click(function(event) {
+    var toggle = $(this);
+    var li = toggle.parent().parent();
+    if(li.hasClass('selected')) {
+      li.removeClass('selected');
+    } else {
+      li.addClass('selected');
+    }
+    li.children('.nested-tab-level-two').toggle(500);
+  });
+
+
+
+  //Level 1 tabs navigation
 
   $('.v-tabs-nested-nav').children('li').children('a').click(function(e) {
     var tabs = $(this).parents('div').children('.v-tabs-nested-nav').children('li').children('a');
@@ -40,6 +55,9 @@ $(document).ready(function(){
     parent_div.children('div#' + id).addClass('toggled_tab');
     parent_div.children('div#' + id).show();
   });
+
+
+  //Level 0 tabs navigation
 
   $('#top_tabs').children('li').children('a').click(function(e) {
     e.preventDefault();
