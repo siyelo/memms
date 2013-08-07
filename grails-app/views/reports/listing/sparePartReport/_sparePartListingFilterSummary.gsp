@@ -26,9 +26,7 @@
       <span><g:message code="reports.subType.label"/>:</span>
       <a href="#">${message(code:'reports.subType.'+reportSubType?.reportSubType)}</a>
     </li>
-  </ul>
-  
-  <ul>
+
     <g:if test="${customizedReportName != null && !customizedReportName.empty}">
       <li>
         <span>Report Filter Summary:</span>
